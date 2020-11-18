@@ -801,11 +801,14 @@ public class InAppBrowser extends CordovaPlugin {
                     dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 }
                 dialog.setCancelable(true);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent); //setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
                 dialog.setInAppBroswer(getInAppBrowser());
 
                 // Main container layout
                 LinearLayout main = new LinearLayout(cordova.getActivity());
                 main.setOrientation(LinearLayout.VERTICAL);
+                main.setBackgroundResource(android.R.color.transparent);
 
                 // Toolbar layout
                 RelativeLayout toolbar = new RelativeLayout(cordova.getActivity());
@@ -935,6 +938,7 @@ public class InAppBrowser extends CordovaPlugin {
                 // WebView
                 inAppWebView = new WebView(cordova.getActivity());
                 inAppWebView.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+                inAppWebView.setBackgroundColor(0x00000000);//setBackgroundResource(android.R.color.transparent);
                 inAppWebView.setId(Integer.valueOf(6));
                 // File Chooser Implemented ChromeClient
                 inAppWebView.setWebChromeClient(new InAppChromeClient(thatWebView) {
@@ -1064,6 +1068,7 @@ public class InAppBrowser extends CordovaPlugin {
 
                 // Add our webview to our main view/layout
                 RelativeLayout webViewLayout = new RelativeLayout(cordova.getActivity());
+                webViewLayout.setBackgroundResource(android.R.color.transparent);
                 webViewLayout.addView(inAppWebView);
                 main.addView(webViewLayout);
 
@@ -1081,6 +1086,7 @@ public class InAppBrowser extends CordovaPlugin {
                     dialog.setContentView(main);
                     dialog.show();
                     dialog.getWindow().setAttributes(lp);
+                    dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 }
                 // the goal of openhidden is to load the url and not display it
                 // Show() needs to be called to cause the URL to be loaded
