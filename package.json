@@ -1,10 +1,10 @@
 {
-  "name": "cordova-plugin-inappbrowser",
-  "version": "5.1.0-dev",
-  "description": "Cordova InAppBrowser Plugin",
+  "name": "cordova-plugin-inappbrowser-transparent",
+  "version": "4.1.1",
+  "description": "Cordova InAppBrowser Plugin with transparent background",
   "types": "./types/index.d.ts",
   "cordova": {
-    "id": "cordova-plugin-inappbrowser",
+    "id": "cordova-plugin-inappbrowser-transparent",
     "platforms": [
       "android",
       "browser",
@@ -13,8 +13,8 @@
       "windows"
     ]
   },
-  "repository": "github:apache/cordova-plugin-inappbrowser",
-  "bugs": "https://github.com/apache/cordova-plugin-inappbrowser/issues",
+  "repository": "github:pesi-hgc/cordova-plugin-inappbrowser-transparent",
+  "bugs": "https://github.com/pesi-hgc/cordova-plugin-inappbrowser-transparent/issues",
   "keywords": [
     "cordova",
     "in",
@@ -26,7 +26,8 @@
     "cordova-browser",
     "cordova-ios",
     "cordova-osx",
-    "cordova-windows"
+    "cordova-windows",
+    "transparent"
   ],
   "scripts": {
     "test": "npm run lint",
