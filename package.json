@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-inappbrowser-transparent",
-  "version": "4.1.5",
+  "version": "4.1.6",
   "description": "Cordova InAppBrowser Plugin with transparent background",
   "types": "./types/index.d.ts",
   "cordova": {
