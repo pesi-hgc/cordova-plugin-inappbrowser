@@ -797,7 +797,6 @@ BOOL isExiting = FALSE;
     
     self.webView.navigationDelegate = self;
     self.webView.UIDelegate = self.webViewUIDelegate;
-    self.webView.backgroundColor = [UIColor whiteColor];
     if ([self settingForKey:@"OverrideUserAgent"] != nil) {
         self.webView.customUserAgent = [self settingForKey:@"OverrideUserAgent"];
     }
@@ -806,12 +805,13 @@ BOOL isExiting = FALSE;
     self.webView.clipsToBounds = YES;
     self.webView.contentMode = UIViewContentModeScaleToFill;
     self.webView.multipleTouchEnabled = YES;
-    self.webView.opaque = YES;
+    self.webView.opaque = NO;
     self.webView.userInteractionEnabled = YES;
     self.automaticallyAdjustsScrollViewInsets = YES ;
     [self.webView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
     self.webView.allowsLinkPreview = NO;
     self.webView.allowsBackForwardNavigationGestures = NO;
+    self.webView.backgroundColor = [UIColor clearColor];
     
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
    if (@available(iOS 11.0, *)) {
