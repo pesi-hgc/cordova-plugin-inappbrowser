@@ -534,15 +534,27 @@ public class InAppBrowser extends CordovaPlugin {
                     return;
                 }
 
+                if (dialog != null && !cordova.getActivity().isFinishing()) {
+                    dialog.hide();
+                }
+
                 childView.setWebViewClient(new WebViewClient() {
                     // NB: wait for about:blank before dismissing
                     public void onPageFinished(WebView view, String url) {
-                        if (dialog != null && !cordova.getActivity().isFinishing()) {
+                        if (dialog != null && !dialog.isShowing() && !cordova.getActivity().isFinishing()) {
                             dialog.dismiss();
                             dialog = null;
                         }
+
+                        if (url.equals(new String("about:blank"))) {
+                            LOG.d(LOG_TAG, "destroying view...");
+                            view.onPause();
+                            view.removeAllViews();
+                            view.destroy();
+                        }
                     }
                 });
+
                 // NB: From SDK 19: "If you call methods on WebView from any thread
                 // other than your app's UI thread, it can cause unexpected results."
                 // http://developer.android.com/guide/webapps/migrating.html#Threads
